@@ -1,36 +1,90 @@
-import React from 'react'
-import styled from 'styled-components'
+import {Search, ShoppingCartOutlined} from '@material-ui/icons';
+import React from 'react';
+import styled from 'styled-components';
+import { Badge } from '@material-ui/core';
 
 const Container = styled.div`
     height: 60px;
-`
+`;
 
 const Wrapper = styled.div`
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-`
+`;
 
 const Left = styled.div`
     flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    padding: 5px;
+`;
+
+const Input = styled.input`
+  border: none;
 `
+
+const Logo = styled.h1`
+
+  font-weight: bold;
+`
+
+const Language = styled.span`
+    font-size: 14px;
+    cursor: pointer;
+`;
 const Center = styled.div`
     flex: 1;
-`
+    text-align: center;
+`;
 const Right = styled.div`
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`;
+
+const SearchContainer = styled.div`
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+`;
+
+const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
 `
 
 const Navbar = () => {
   return (
     <Container>
-        <Wrapper>
-            <Left>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aliquid molestias inventore possimus. Suscipit laborum dolorem sapiente deleniti voluptas id repudiandae dolores iure quaerat tempore! Laborum molestiae id repellendus perspiciatis!</Left>
-            <Center>left</Center>
-            <Right>left</Right>
-        </Wrapper>
+      <Wrapper>
+        <Left>
+          <Language>
+            EN
+          </Language>
+          <SearchContainer>
+            <Input/>
+            <Search  style={{ color:'gray', fontSize: 16}}/>
+          </SearchContainer>
+        </Left>
+        <Center>
+          <Logo>SHOPPLA</Logo>
+        </Center>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <Badge badgeContent = {4} color='primary'>
+              <ShoppingCartOutlined/>
+            </Badge>
+          </MenuItem>
+        </Right>
+      </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
