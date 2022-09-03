@@ -49,7 +49,7 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    ${mobile({ justifyContent: 'center'})}
+    ${mobile({ flex: 2, justifyContent: 'center'})}
 `;
 
 const SearchContainer = styled.div`
