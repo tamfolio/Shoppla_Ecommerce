@@ -3,6 +3,7 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -63,8 +64,13 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  text-decoration: none;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
+
+const Tag = styled(Link)`
+  text-decoration: none;
+`
 
 const Navbar = () => {
   return (
@@ -81,11 +87,21 @@ const Navbar = () => {
           <Logo>SHOPPLA</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+        <MenuItem>
+            <Tag to='/register'>
+              REGISTER
+            </Tag>  
+        </MenuItem>
+            <MenuItem>
+            <Tag to='/login'>
+              SIGN IN
+            </Tag>  
+            </MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
+              <Tag to='/cart'>
+                <ShoppingCartOutlined />
+              </Tag>
             </Badge>
           </MenuItem>
         </Right>
